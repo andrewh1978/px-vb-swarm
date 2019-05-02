@@ -4,6 +4,11 @@ disk_size = 20480
 name = "px-test-cluster"
 version = "2.0"
 
+if !File.exist?("id_rsa") or !File.exist?("id_rsa.pub")
+    puts("Please create SSH keys before running vagrant up.")
+    abort
+end
+
 open("hosts", "w") do |f|
   f << "192.168.99.99 master\n"
   (1..nodes).each do |n|
