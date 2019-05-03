@@ -5,8 +5,7 @@ name = "px-test-cluster"
 version = "2.0"
 
 if !File.exist?("id_rsa") or !File.exist?("id_rsa.pub")
-    puts("Please create SSH keys before running vagrant up.")
-    abort
+    abort("Please create SSH keys before running vagrant up.")
 end
 
 open("hosts", "w") do |f|
